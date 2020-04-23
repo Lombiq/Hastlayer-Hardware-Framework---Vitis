@@ -22,8 +22,8 @@ int main(int argc, char** argv)
 
     // Create the test data 
     host_buffer[0] = 8;
-    host_buffer[8] = 1024;
-    host_buffer[9] = 3;
+    host_buffer[8] = 3;
+    host_buffer[9] = 4;
 
 // OPENCL HOST CODE AREA START
 	
@@ -91,7 +91,6 @@ int main(int argc, char** argv)
 //         o) Submit Kernels for Execution
 //         o) Copy Results from Global Memory, device to Host
 // ============================================================================	
-    std::cout << "HOST: krnl_vector_add.setArg" << std::endl;
     OCL_CHECK(err, err = krnl_vector_add.setArg(0, fpga_buffer));
 
 // ------------------------------------------------------
@@ -102,7 +101,6 @@ int main(int argc, char** argv)
 // ----------------------------------------
 // Step 2: Submit Kernels for Execution
 // ----------------------------------------
-    std::cout << "HOST: q.enqueueTask" << std::endl;
     OCL_CHECK(err, err = q.enqueueTask(krnl_vector_add));
 	
 // --------------------------------------------------
@@ -114,7 +112,7 @@ int main(int argc, char** argv)
 	
 // OPENCL HOST CODE AREA END
 
-    for (int i = 0 ; i < 15 ; i++)
+    for (int i = 0 ; i < 10 ; i++)
     {
       std::cout << "HOST: buffer[" << i << "] = 0x" << std::hex << std::setw(8) << std::setfill('0') << host_buffer[i] << std::endl;
     }

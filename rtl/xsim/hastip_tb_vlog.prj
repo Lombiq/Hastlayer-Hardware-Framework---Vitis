@@ -1,0 +1,29 @@
+# compile the hastip kernel source files
+verilog xil_defaultlib \
+"../src/IP/hastip.v" \
+"../src/IP/hastip_control_s_axi.v"
+
+#"../src/IP/hastip_example_adder.v" \
+
+sv xil_defaultlib \
+"../src/IP/hastip_core.sv"  \
+"../src/IP/hastip_core_cache.sv" 
+
+#"../src/IP/hastip_example_axi_read_master.sv" \
+#"../src/IP/hastip_example_axi_write_master.sv" \
+#"../src/IP/hastip_example_counter.sv" \
+#"../src/IP/hastip_example_vadd.sv" \
+
+# compile the testbench source files
+sv xil_defaultlib \
+"../src/testbench/slv_m00_axi_vip_pkg.sv" \
+"../src/testbench/slv_m00_axi_vip.sv" \
+"../src/testbench/control_hastip_vip_pkg.sv" \
+"../src/testbench/control_hastip_vip.sv" \
+"../src/testbench/hastip_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

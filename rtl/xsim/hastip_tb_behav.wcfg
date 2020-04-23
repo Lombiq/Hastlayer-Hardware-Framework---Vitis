@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="hastip_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="hastip_tb" />
+            <top_module name="simplememory" />
+            <top_module name="std" />
+            <top_module name="typeconversion" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1666666fs"></ZoomStartTime>
+      <ZoomEndTime time="11666667fs"></ZoomEndTime>
+      <Cursor1Time time="10000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="63" />
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_clk">
+      <obj_property name="ElementShortName">ap_clk</obj_property>
+      <obj_property name="ObjectShortName">ap_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_rst_n">
+      <obj_property name="ElementShortName">ap_rst_n</obj_property>
+      <obj_property name="ObjectShortName">ap_rst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_awvalid">
+      <obj_property name="ElementShortName">m00_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_awready">
+      <obj_property name="ElementShortName">m00_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_awaddr">
+      <obj_property name="ElementShortName">m00_axi_awaddr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awaddr[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_awlen">
+      <obj_property name="ElementShortName">m00_axi_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_wvalid">
+      <obj_property name="ElementShortName">m00_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_wready">
+      <obj_property name="ElementShortName">m00_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_wdata">
+      <obj_property name="ElementShortName">m00_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_wstrb">
+      <obj_property name="ElementShortName">m00_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_wlast">
+      <obj_property name="ElementShortName">m00_axi_wlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_bvalid">
+      <obj_property name="ElementShortName">m00_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_bready">
+      <obj_property name="ElementShortName">m00_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_bready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_arvalid">
+      <obj_property name="ElementShortName">m00_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_arready">
+      <obj_property name="ElementShortName">m00_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_araddr">
+      <obj_property name="ElementShortName">m00_axi_araddr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_araddr[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_arlen">
+      <obj_property name="ElementShortName">m00_axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_rvalid">
+      <obj_property name="ElementShortName">m00_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_rready">
+      <obj_property name="ElementShortName">m00_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_rdata">
+      <obj_property name="ElementShortName">m00_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/m00_axi_rlast">
+      <obj_property name="ElementShortName">m00_axi_rlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_start">
+      <obj_property name="ElementShortName">ap_start</obj_property>
+      <obj_property name="ObjectShortName">ap_start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_idle">
+      <obj_property name="ElementShortName">ap_idle</obj_property>
+      <obj_property name="ObjectShortName">ap_idle</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_done">
+      <obj_property name="ElementShortName">ap_done</obj_property>
+      <obj_property name="ObjectShortName">ap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_ready">
+      <obj_property name="ElementShortName">ap_ready</obj_property>
+      <obj_property name="ObjectShortName">ap_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/axi00_ptr0">
+      <obj_property name="ElementShortName">axi00_ptr0[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axi00_ptr0[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/areset">
+      <obj_property name="ElementShortName">areset</obj_property>
+      <obj_property name="ObjectShortName">areset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_start_r">
+      <obj_property name="ElementShortName">ap_start_r</obj_property>
+      <obj_property name="ObjectShortName">ap_start_r</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_idle_r">
+      <obj_property name="ElementShortName">ap_idle_r</obj_property>
+      <obj_property name="ObjectShortName">ap_idle_r</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/ap_start_pulse">
+      <obj_property name="ElementShortName">ap_start_pulse</obj_property>
+      <obj_property name="ObjectShortName">ap_start_pulse</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/ap_done_i">
+      <obj_property name="ElementShortName">ap_done_i[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ap_done_i[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/ap_done_r">
+      <obj_property name="ElementShortName">ap_done_r[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ap_done_r[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/ctrl_xfer_size_in_bytes">
+      <obj_property name="ElementShortName">ctrl_xfer_size_in_bytes[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrl_xfer_size_in_bytes[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/ctrl_constant">
+      <obj_property name="ElementShortName">ctrl_constant[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrl_constant[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipDataOutFsm">
+      <obj_property name="ElementShortName">hastipDataOutFsm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipDataOutFsm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipCellIndexFsm">
+      <obj_property name="ElementShortName">hastipCellIndexFsm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipCellIndexFsm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipReadEnableFsm">
+      <obj_property name="ElementShortName">hastipReadEnableFsm</obj_property>
+      <obj_property name="ObjectShortName">hastipReadEnableFsm</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipWriteEnableFsm">
+      <obj_property name="ElementShortName">hastipWriteEnableFsm</obj_property>
+      <obj_property name="ObjectShortName">hastipWriteEnableFsm</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipDataOutIp">
+      <obj_property name="ElementShortName">hastipDataOutIp[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipDataOutIp[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipCellIndexIp">
+      <obj_property name="ElementShortName">hastipCellIndexIp[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipCellIndexIp[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipReadEnableIp">
+      <obj_property name="ElementShortName">hastipReadEnableIp</obj_property>
+      <obj_property name="ObjectShortName">hastipReadEnableIp</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipWriteEnableIp">
+      <obj_property name="ElementShortName">hastipWriteEnableIp</obj_property>
+      <obj_property name="ObjectShortName">hastipWriteEnableIp</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipDataOut">
+      <obj_property name="ElementShortName">hastipDataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipDataOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipCellIndex">
+      <obj_property name="ElementShortName">hastipCellIndex[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipCellIndex[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipReadEnable">
+      <obj_property name="ElementShortName">hastipReadEnable</obj_property>
+      <obj_property name="ObjectShortName">hastipReadEnable</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipWriteEnable">
+      <obj_property name="ElementShortName">hastipWriteEnable</obj_property>
+      <obj_property name="ObjectShortName">hastipWriteEnable</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipDataIn">
+      <obj_property name="ElementShortName">hastipDataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipDataIn[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipReadsDone">
+      <obj_property name="ElementShortName">hastipReadsDone</obj_property>
+      <obj_property name="ObjectShortName">hastipReadsDone</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipWritesDone">
+      <obj_property name="ElementShortName">hastipWritesDone</obj_property>
+      <obj_property name="ObjectShortName">hastipWritesDone</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipMemberId">
+      <obj_property name="ElementShortName">hastipMemberId[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipMemberId[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipStarted">
+      <obj_property name="ElementShortName">hastipStarted</obj_property>
+      <obj_property name="ObjectShortName">hastipStarted</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipFinished">
+      <obj_property name="ElementShortName">hastipFinished</obj_property>
+      <obj_property name="ObjectShortName">hastipFinished</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipBufferOffset">
+      <obj_property name="ElementShortName">hastipBufferOffset[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipBufferOffset[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/hastipTimer">
+      <obj_property name="ElementShortName">hastipTimer[63:0]</obj_property>
+      <obj_property name="ObjectShortName">hastipTimer[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hastip_tb/inst_dut/inst_core/hastipSwitch">
+      <obj_property name="ElementShortName">hastipSwitch</obj_property>
+      <obj_property name="ObjectShortName">hastipSwitch</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/fsm_state">
+      <obj_property name="ElementShortName">fsm_state[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm_state[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/axi_state">
+      <obj_property name="ElementShortName">axi_state[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_state[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/C_M00_AXI_ADDR_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/C_M00_AXI_DATA_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/LP_DEFAULT_LENGTH_IN_BYTES">
+      <obj_property name="ElementShortName">LP_DEFAULT_LENGTH_IN_BYTES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LP_DEFAULT_LENGTH_IN_BYTES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/LP_NUM_EXAMPLES">
+      <obj_property name="ElementShortName">LP_NUM_EXAMPLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LP_NUM_EXAMPLES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/HAST_IP_DATA_WIDTH">
+      <obj_property name="ElementShortName">HAST_IP_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HAST_IP_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hastip_tb/inst_dut/inst_core/HAST_IP_MEMBER_ID">
+      <obj_property name="ElementShortName">HAST_IP_MEMBER_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HAST_IP_MEMBER_ID[31:0]</obj_property>
+   </wvobject>
+</wave_config>
