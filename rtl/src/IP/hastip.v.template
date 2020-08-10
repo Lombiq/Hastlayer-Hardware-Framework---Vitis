@@ -8,7 +8,8 @@ module hastip #(
   parameter integer C_S_AXI_CONTROL_ADDR_WIDTH = 12 ,
   parameter integer C_S_AXI_CONTROL_DATA_WIDTH = 32 ,
   parameter integer C_M00_AXI_ADDR_WIDTH       = 64 ,
-  parameter integer C_M00_AXI_DATA_WIDTH       = 32
+  parameter integer C_M00_AXI_DATA_WIDTH       = ###hastipAxiDWidth###,
+  parameter integer C_AXI_CACHE                = ###hastipCache###
 )
 (
   // System signals
@@ -146,7 +147,8 @@ inst_control_s_axi (
 // Example RTL block.  Remove to insert custom logic.
 hastip_core #(
   .C_M00_AXI_ADDR_WIDTH ( C_M00_AXI_ADDR_WIDTH ),
-  .C_M00_AXI_DATA_WIDTH ( C_M00_AXI_DATA_WIDTH )
+  .C_M00_AXI_DATA_WIDTH ( C_M00_AXI_DATA_WIDTH ),
+  .C_AXI_CACHE          ( C_AXI_CACHE          )
 )
 inst_core (
   .ap_clk          ( ap_clk          ),

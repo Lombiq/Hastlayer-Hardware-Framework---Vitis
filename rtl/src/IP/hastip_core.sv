@@ -1,31 +1,32 @@
 // default_nettype of none prevents implicit wire declaration.
 `default_nettype none
 module hastip_core #(
-  parameter integer C_M00_AXI_ADDR_WIDTH = 64 ,
-  parameter integer C_M00_AXI_DATA_WIDTH = 32
+  parameter integer C_M00_AXI_ADDR_WIDTH = 0,
+  parameter integer C_M00_AXI_DATA_WIDTH = 0,
+  parameter integer C_AXI_CACHE          = 0
 )
 (
   // System Signals
   input  wire                              ap_clk         ,
   input  wire                              ap_rst_n       ,
   // AXI4 master interface m00_axi
-  output reg                               m00_axi_awvalid = 0,
+  output reg                               m00_axi_awvalid,
   input  wire                              m00_axi_awready,
-  output reg  [C_M00_AXI_ADDR_WIDTH-1:0]   m00_axi_awaddr  = 0,
-  output reg  [8-1:0]                      m00_axi_awlen   = 0,
-  output reg                               m00_axi_wvalid  = 0,
+  output reg  [C_M00_AXI_ADDR_WIDTH-1:0]   m00_axi_awaddr ,
+  output reg  [8-1:0]                      m00_axi_awlen  ,
+  output reg                               m00_axi_wvalid ,
   input  wire                              m00_axi_wready ,
-  output reg  [C_M00_AXI_DATA_WIDTH-1:0]   m00_axi_wdata   = 0,
-  output reg  [C_M00_AXI_DATA_WIDTH/8-1:0] m00_axi_wstrb   = 0,
-  output reg                               m00_axi_wlast   = 0,
+  output reg  [C_M00_AXI_DATA_WIDTH-1:0]   m00_axi_wdata  ,
+  output reg  [C_M00_AXI_DATA_WIDTH/8-1:0] m00_axi_wstrb  ,
+  output reg                               m00_axi_wlast  ,
   input  wire                              m00_axi_bvalid ,
-  output reg                               m00_axi_bready  = 0,
-  output reg                               m00_axi_arvalid = 0,
+  output reg                               m00_axi_bready ,
+  output reg                               m00_axi_arvalid,
   input  wire                              m00_axi_arready,
-  output reg  [C_M00_AXI_ADDR_WIDTH-1:0]   m00_axi_araddr  = 0,
-  output reg  [8-1:0]                      m00_axi_arlen   = 0,
+  output reg  [C_M00_AXI_ADDR_WIDTH-1:0]   m00_axi_araddr ,
+  output reg  [8-1:0]                      m00_axi_arlen  ,
   input  wire                              m00_axi_rvalid ,
-  output reg                               m00_axi_rready  = 0,
+  output reg                               m00_axi_rready ,
   input  wire [C_M00_AXI_DATA_WIDTH-1:0]   m00_axi_rdata  ,
   input  wire                              m00_axi_rlast  ,
   // Control Signals
@@ -33,7 +34,7 @@ module hastip_core #(
   output reg                               ap_idle        ,
   output reg                               ap_done        ,
   output reg                               ap_ready       ,
-  input  wire [64-1:0]                     axi00_ptr0     
+  input  wire [64-1:0]                     axi00_ptr0
 );
 
 timeunit 1ps;
@@ -103,7 +104,12 @@ Hast_IP_Wrapper hastip
 reg [31:0] hastipBufferOffset;
 reg [63:0] hastipTimer;
 
+reg [1:0] hastipCacheConfig;
+
 reg hastipSwitch = 0;
+
+reg cacheFlush = 0;
+wire cacheDirty;
 
 assign hastipDataOut     = (hastipSwitch == 0) ? hastipDataOutFsm     : hastipDataOutIp;
 assign hastipCellIndex   = (hastipSwitch == 0) ? hastipCellIndexFsm   : hastipCellIndexIp + hastipBufferOffset;
@@ -116,6 +122,9 @@ typedef enum {
   INIT_2,
   INIT_3,
   INIT_4,
+  INIT_5,
+  INIT_6,
+  INIT_7,
   GO_1,
   DONE_1,
   DONE_2,
@@ -123,6 +132,7 @@ typedef enum {
   DONE_4,
   DONE_5,
   DONE_6,
+  DONE_7,
   FSM_LAST
 } FSM_State_Type;
 
@@ -145,9 +155,11 @@ always @(posedge ap_clk) begin
           hastipReadEnableFsm <= 0;
           hastipWriteEnableFsm <= 0;
           hastipSwitch <= 0;
+          cacheFlush <= 0;
           hastipBufferOffset <= 0;
           hastipTimer <= 0;
           hastipMemberId = 0;
+          hastipCacheConfig = 3;
           hastipStarted = 0;
           if (ap_start) begin
             ap_idle = 0;
@@ -193,11 +205,41 @@ always @(posedge ap_clk) begin
           if (hastipReadsDone) begin
             hastipMemberId <= hastipDataIn;
             hastipReadEnableFsm <= 0;
-            fsm_state <= GO_1;
+            fsm_state <= INIT_5;
             $display("%0d: FSM: hastipMemberId %d", $time, hastipDataIn);
           end
         end
 
+      INIT_5:
+        begin
+          hastipReadEnableFsm <= 0;
+          if (hastipReadsDone == 0) begin
+            fsm_state <= INIT_6;
+          end
+        end
+
+      INIT_6:
+        begin
+          hastipCellIndexFsm <= 2;
+          hastipReadEnableFsm <= 1;
+          if (hastipReadsDone) begin
+            if (C_AXI_CACHE == 0) hastipCacheConfig = 0;
+            else if (hastipDataIn[31:16] == 'hABBA) hastipCacheConfig <= hastipDataIn;
+            else hastipCacheConfig <= 3;
+            hastipReadEnableFsm <= 0;
+            fsm_state <= INIT_7;
+            $display("%0d: FSM: hastipCacheConfig %x", $time, hastipDataIn);
+          end
+        end
+        
+      INIT_7:
+        begin
+          hastipReadEnableFsm <= 0;
+          if (hastipReadsDone == 0) begin
+            fsm_state <= GO_1;
+          end
+        end
+        
       GO_1:
         begin
           hastipTimer <= hastipTimer + 1;
@@ -253,11 +295,19 @@ always @(posedge ap_clk) begin
 
       DONE_5:
         begin
+          cacheFlush <= 1;
+          if (cacheDirty == 0) begin
+            fsm_state <= DONE_6;
+          end
+        end
+        
+      DONE_6:
+        begin
           ap_done <= 1'b1;
-          fsm_state <= DONE_6;
+          fsm_state <= DONE_7;
         end
 
-      DONE_6:
+      DONE_7:
         begin
           ap_done <= 1'b0;
           fsm_state <= FSM_IDLE;
@@ -300,14 +350,18 @@ inst_cache (
   .m00_axi_rready  ( m00_axi_rready  ),
   .m00_axi_rdata   ( m00_axi_rdata   ),
   .m00_axi_rlast   ( m00_axi_rlast   ),
-  .hastipDataIn (hastipDataIn),
-  .hastipDataOut (hastipDataOut),
-  .hastipCellIndex (hastipCellIndex),
-  .hastipReadEnable (hastipReadEnable),
+  .hastipDataIn      (hastipDataIn),
+  .hastipDataOut     (hastipDataOut),
+  .hastipCellIndex   (hastipCellIndex),
+  .hastipReadEnable  (hastipReadEnable),
   .hastipWriteEnable (hastipWriteEnable),
-  .hastipReadsDone (hastipReadsDone),
-  .hastipWritesDone (hastipWritesDone),
-  .axi00_ptr0 (axi00_ptr0)
+  .hastipReadsDone   (hastipReadsDone),
+  .hastipWritesDone  (hastipWritesDone),
+  .axi00_ptr0        (axi00_ptr0),
+  .cacheFlush        (cacheFlush),
+  .cacheWriteEnable  (hastipCacheConfig[0]),
+  .cacheReadEnable   (hastipCacheConfig[1]),
+  .cacheDirty        (cacheDirty)
 );
 
 endmodule : hastip_core

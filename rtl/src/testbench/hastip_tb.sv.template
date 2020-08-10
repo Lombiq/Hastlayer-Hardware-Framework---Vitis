@@ -13,7 +13,7 @@ parameter integer LP_MAX_TRANSFER_LENGTH = 16384 / 4;
 parameter integer C_S_AXI_CONTROL_ADDR_WIDTH = 12;
 parameter integer C_S_AXI_CONTROL_DATA_WIDTH = 32;
 parameter integer C_M00_AXI_ADDR_WIDTH = 64;
-parameter integer C_M00_AXI_DATA_WIDTH = 32;
+parameter integer C_M00_AXI_DATA_WIDTH = ###hastipAxiDWidth###;
 
 // Control Register
 parameter KRNL_CTRL_REG_ADDR     = 32'h00000000;
@@ -521,7 +521,7 @@ task automatic dump_kernel_result_buffer();
   bit error_found = 0;
   integer error_counter;
   error_counter = 0;
-  for (int slot = 0; slot < 10; slot++) begin
+  for (int slot = 0; slot < 20; slot++) begin
     ret_rd_value = m00_axi.mem_model.backdoor_memory_read_4byte(axi00_ptr0_ptr + (slot * 4));
     $display("Memory: m00_axi : @0x%x : slot 0x%x -> data 0x%x ", axi00_ptr0_ptr + (slot * 4), slot, ret_rd_value);
   end
@@ -558,11 +558,12 @@ task automatic multiple_iteration(input integer unsigned num_iterations, output 
     set_memory_pointers();
     backdoor_fill_memories();
     // Fill Hast_IP Kernel buffer
-    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + (0 * 4), 4);
-    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + (1 * 4), 0);
-    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + (2 * 4), 256+2);
-    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + (3 * 4), 256+3);
-    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + (4 * 4), 17);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (0 + 0), 4);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (0 + 1), 0);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (0 + 2), 'hABBA0003);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (0 + 3), -1);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (4 + 0), 2);
+    m00_axi.mem_model.backdoor_memory_write_4byte(axi00_ptr0_ptr + 4 * (4 + 1), 12);
     dump_kernel_result_buffer();
     // Check that Kernel is IDLE before starting.
     poll_idle_register();

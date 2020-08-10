@@ -12,7 +12,7 @@ import axi_vip_pkg::*;
       parameter slv_m00_axi_vip_VIP_READ_WRITE_MODE    = "READ_WRITE";
       parameter slv_m00_axi_vip_VIP_INTERFACE_MODE     = 2;
       parameter slv_m00_axi_vip_VIP_ADDR_WIDTH         = 64;
-      parameter slv_m00_axi_vip_VIP_DATA_WIDTH         = 32;
+      parameter slv_m00_axi_vip_VIP_DATA_WIDTH         = ###hastipAxiDWidth###;
       parameter slv_m00_axi_vip_VIP_ID_WIDTH           = 0;
       parameter slv_m00_axi_vip_VIP_AWUSER_WIDTH       = 0;
       parameter slv_m00_axi_vip_VIP_ARUSER_WIDTH       = 0;

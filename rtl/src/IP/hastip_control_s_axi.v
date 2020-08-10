@@ -5,8 +5,8 @@
 `timescale 1ns/1ps
 module hastip_control_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 5,
-    C_S_AXI_DATA_WIDTH = 32
+    C_S_AXI_ADDR_WIDTH = 0,
+    C_S_AXI_DATA_WIDTH = 0
 )(
     input  wire                          ACLK,
     input  wire                          ARESET,
