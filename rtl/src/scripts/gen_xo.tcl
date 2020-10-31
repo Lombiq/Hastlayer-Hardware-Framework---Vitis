@@ -33,7 +33,7 @@
 # *******************************************************************************/
 
 if { $::argc != 3 } {
-    puts "ERROR: Program \"$::argv0\" requires 4 arguments!\n"
+    puts "ERROR: Program \"$::argv0\" requires 3 arguments!\n"
     puts "Usage: $::argv0 <xoname> <target> <device>\n"
     exit
 }
