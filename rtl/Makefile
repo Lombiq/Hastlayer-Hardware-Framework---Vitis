@@ -61,7 +61,7 @@ configure:
 all: ./src/xml/kernel.xml ./src/scripts/package_kernel.tcl ./src/scripts/gen_xo.tcl ./src/IP/*.v ./src/IP/*.vhd ./src/IP/*.xdc
 	$(func-configure)
 	@mkdir -p $(XCLBIN)
-	$(VIVADO) -mode batch -source ./src/scripts/gen_xo.tcl -tclargs $(XCLBIN)/hastip.$(TARGET).xo hastip $(TARGET) $(DEVICE)
+	$(VIVADO) -mode batch -source ./src/scripts/gen_xo.tcl -tclargs $(XCLBIN)/hastip.$(TARGET).xo $(TARGET) $(DEVICE)
 	$(VPP) $(CLFLAGS) $(LDCLFLAGS) --kernel_frequency $(FREQUENCY) -lo $(XCLBIN)/hastip.$(TARGET).xclbin $(XCLBIN)/hastip.$(TARGET).xo
 	emconfigutil --platform $(DEVICE) --od $(XCLBIN)
 	cp $(XCLBIN)/emconfig.json .
