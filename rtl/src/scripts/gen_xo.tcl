@@ -50,9 +50,8 @@ if {[file exists "${xoname}"]} {
 
 if {[file exists "./src/scripts/package_kernel.tcl"]} {
     source -notrace ./src/scripts/package_kernel.tcl
-    package_xo -xo_path ${xoname} -kernel_name hastip -ip_directory ./packaged_kernel_${suffix} -kernel_xml ./src/xml/kernel.xml
-}
-else {
+} else {
     source -notrace ../src/scripts/package_kernel.tcl
-    package_xo -xo_path ${xoname} -kernel_name hastip -ip_directory ./packaged_kernel_${suffix} -kernel_xml ../src/xml/kernel.xml
 }
+
+package_xo -xo_path ${xoname} -kernel_name hastip -ip_directory ./packaged_kernel_${suffix} -kernel_xml ./src/xml/kernel.xml
