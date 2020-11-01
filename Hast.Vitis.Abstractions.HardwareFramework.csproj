@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup> 
+      <None Update="rtl\src\IP\Hast_IP.vhd" LinkBase="config\" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\Hast_IP.xdc" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\Hast_IP_Wrapper.vhd" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\hastip.v.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\hastip_control_s_axi.v" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\hastip_core.sv" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\hastip_core_cache.sv" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\scripts\gen_xo.tcl" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\scripts\package_kernel.tcl" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\scripts\synth_util.tcl" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\xml\kernel.xml.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\testbench\control_hastip_vip.sv" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\testbench\control_hastip_vip_pkg.sv" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\testbench\hastip_tb.sv.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\testbench\slv_m00_axi_vip.sv.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\testbench\slv_m00_axi_vip_pkg.sv.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+
+</Project>
