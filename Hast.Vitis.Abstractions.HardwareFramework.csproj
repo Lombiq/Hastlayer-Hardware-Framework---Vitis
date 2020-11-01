@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup> 
-      <None Update="rtl\src\IP\Hast_IP.vhd" LinkBase="config\" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="rtl\src\IP\Hast_IP.vhd" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
       <None Update="rtl\src\IP\Hast_IP.xdc" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
       <None Update="rtl\src\IP\Hast_IP_Wrapper.vhd" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
       <None Update="rtl\src\IP\hastip.v.template" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
