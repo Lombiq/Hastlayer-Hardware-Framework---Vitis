@@ -32,9 +32,9 @@
 #
 # *******************************************************************************/
 
-if { $::argc != 3 } {
-    puts "ERROR: Program \"$::argv0\" requires 3 arguments!\n"
-    puts "Usage: $::argv0 <xoname> <target> <device>\n"
+if { $::argc < 3 } {
+    puts "ERROR: Program \"$::argv0\" requires 3 arguments! The rest are optional.\n"
+    puts "Usage: $::argv0 <xoname> <target> <device> [<path_to_hdl> [<kerneltcl> [<kernelxml>]]]\n"
     exit
 }
 
@@ -42,16 +42,27 @@ set xoname    [lindex $::argv 0]
 set target    [lindex $::argv 1]
 set device    [lindex $::argv 2]
 
+if { $::argc > 4 } {
+    set path_to_hdl [lindex $::argv 3]
+} else {
+    set path_to_hdl "./src/IP"
+}
+if { $::argc > 4 } {
+    set kerneltcl [lindex $::argv 4]
+} else {
+    set kerneltcl "./src/scripts/package_kernel.tcl"
+}
+if { $::argc > 5 } {
+    set kernelxml [lindex $::argv 5]
+} else {
+    set kernelxml "./src/xml/kernel.xml"
+}
+
 set suffix "hastip_${target}_${device}"
 
 if {[file exists "${xoname}"]} {
     file delete -force "${xoname}"
 }
 
-if {[file exists "./src/scripts/package_kernel.tcl"]} {
-    source -notrace ./src/scripts/package_kernel.tcl
-} else {
-    source -notrace ../src/scripts/package_kernel.tcl
-}
-
-package_xo -xo_path ${xoname} -kernel_name hastip -ip_directory ./packaged_kernel_${suffix} -kernel_xml ./src/xml/kernel.xml
+source -notrace "${kerneltcl}"
+package_xo -xo_path ${xoname} -kernel_name hastip -ip_directory ./packaged_kernel_${suffix} -kernel_xml "${kernelxml}"
