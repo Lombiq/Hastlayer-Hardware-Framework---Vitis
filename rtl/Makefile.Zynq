@@ -1,0 +1,93 @@
+# Dumping help
+
+.PHONY: help
+help::
+	@echo "Makefile Usage:"
+	@echo "  make all TARGET=<hw/hw_emu> \\"
+	@echo "           DEVICE=<FPGA platform> \\"
+	@echo "           MEMTYPE=<default(default)/DDR/PLRAM> \\"
+	@echo "           AXIDWIDTH=<32/64/128/256/512(default)/1024> \\"
+	@echo "           CACHE=<0/1(default)>"
+	@echo "      Command to generate the design for specified Target and Device with provided parameters."
+	@echo ""
+	@echo "  make configure AXIDWIDTH=<32/64/128/256/512(default)/1024> CACHE=<1(default)/0>"
+	@echo "      Command to configure RTL Kernel source files for Vivado simulation."
+	@echo ""
+	@echo "  make memorytest"
+	@echo "      Command to build host side memory tester application."
+	@echo ""
+	@echo "  make cleanall"
+	@echo "      Command to remove all the generated files."
+	@echo ""
+
+# Building host side memorytest application
+
+memorytest: ./src/memorytest/memorytest.cpp
+	g++ -I$(XILINX_XRT)/include -I$(XILINX_VIVADO)/include -Wall -O0 -g -std=c++14 -fmessage-length=0 ./src/memorytest/memorytest.cpp -o memorytest -L$(XILINX_XRT)/lib -lOpenCL -lpthread -lrt -lstdc++
+
+# Building kernel
+
+MEMTYPE:= default
+AXIDWIDTH := 1024
+CACHE := 1
+
+XCLBIN := ./xclbin
+VIVADO := $(XILINX_VIVADO)/bin/vivado
+VPP := $(XILINX_VITIS)/bin/v++
+CLFLAGS += -g -R2 --save-temps -t $(TARGET) --platform $(DEVICE)
+#CLFLAGS += --dk chipscope:hastip_1:m_axi_gmem
+CLFLAGS += --advanced.param compiler.skipTimingCheckAndFrequencyScaling=1
+CLFLAGS += --optimize 3
+
+ifeq ($(MEMTYPE),$(filter $(MEMTYPE),DDR PLRAM))
+CLFLAGS += --connectivity.sp hastip_1.buffer:$(MEMTYPE)[0:0]
+endif
+
+define func-configure =
+@sed "s/###hastipAxiDWidth###/$(AXIDWIDTH)/g" ./src/xml/kernel.xml.template > ./src/xml/kernel.xml
+@sed "s/###hastipAxiDWidth###/$(AXIDWIDTH)/g; s/###hastipCache###/$(CACHE)/g;" ./src/IP/hastip.v.template > ./src/IP/hastip.v
+@sed "s/###hastipAxiDWidth###/$(AXIDWIDTH)/g" ./src/testbench/slv_m00_axi_vip_pkg.sv.template > ./src/testbench/slv_m00_axi_vip_pkg.sv
+@sed "s/###hastipAxiDWidth###/$(AXIDWIDTH)/g" ./src/testbench/slv_m00_axi_vip.sv.template > ./src/testbench/slv_m00_axi_vip.sv
+@sed "s/###hastipAxiDWidth###/$(AXIDWIDTH)/g" ./src/testbench/hastip_tb.sv.template > ./src/testbench/hastip_tb.sv
+endef
+
+define func-scale =
+@$(VIVADO) -mode batch -source ./src/scripts/scale_frequency.tcl ./_x/link/vivado/vpl/prj/prj.xpr -tclargs ./xclbin myxpr
+@xclbinutil --input ./xclbin/hastip.hw.xclbin.org --replace-section CLOCK_FREQ_TOPOLOGY:json:./xclbin/clock_freq_topology.json --output ./xclbin/hastip.hw.xclbin --force
+@xclbinutil --input ./xclbin/hastip.hw.xclbin --info ./xclbin/hastip.hw.xclbin.info --force
+@xclbinutil --input ./xclbin/hastip.hw.xclbin --dump-section BITSTREAM:RAW:./xclbin/hastip.hw.bit --force
+@python3 ./src/scripts/fpga-bit-to-bin.py -f ./xclbin/hastip.hw.bit ./xclbin/hastip.hw.bit.bin
+endef
+
+.PHONY: configure
+configure:
+	$(func-configure)
+
+.PHONY: scale
+scale:
+	$(func-scale)
+
+./src/xml/kernel.xml ./src/IP/*.v:
+	$(func-configure)
+
+all: ./src/xml/kernel.xml ./src/scripts/package_kernel.tcl ./src/scripts/gen_xo.tcl ./src/IP/*.v ./src/IP/*.vhd ./src/IP/*.xdc
+	$(func-configure)
+	@mkdir -p $(XCLBIN)
+	$(VIVADO) -mode batch -source ./src/scripts/gen_xo.tcl -tclargs $(XCLBIN)/hastip.$(TARGET).xo $(TARGET) $(DEVICE)
+	$(VPP) $(CLFLAGS) $(LDCLFLAGS) -lo $(XCLBIN)/hastip.$(TARGET).xclbin $(XCLBIN)/hastip.$(TARGET).xo
+	mv $(XCLBIN)/hastip.$(TARGET).xclbin $(XCLBIN)/hastip.$(TARGET).xclbin.org
+	cp ./src/IP/Hast_IP.vhd.name $(XCLBIN)/
+	cp ./src/IP/Hast_IP.vhd.hash $(XCLBIN)/
+	$(func-scale)
+	emconfigutil --platform $(DEVICE) --od $(XCLBIN)
+	cp $(XCLBIN)/emconfig.json .
+
+# Cleaning stuff
+
+.PHONY: clean
+clean:.
+	rm -rf ./tmp_kernel_pack* ./packaged_kernel* ./x ./_x ./.Xil ./.run ./.ipcache
+
+.PHONY: cleanall
+cleanall: clean
+	rm -rf *.log *.jou *.csv *.run_summary memorytest emconfig.json $(XCLBIN)
