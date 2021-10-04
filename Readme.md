@@ -9,13 +9,17 @@ The hardware framework project to be used with the [Hastlayer SDK](https://githu
 
 ## Documentation
 
-### Contents
+Contents:
+
 - `opencl`: C++ OpenCL sample project
 - `rtl`: VHDL template project for building OpenCL binaries with Hastlayer.
 - `Hast.Vitis.Abstractions.HardwareFramework.csproj`: A container project that helps importing the files from `rtl` into your .Net Core project. It's a dependency of `Hast.Vitis.Abstractions`.
 
-### Release notes
-asdf
+## Release notes
+
+### v1.0 04.10.2021
+
+First public release with support for Alveo Datacenter Accelerator Cards.
 
 
 ## Contributing and support
