@@ -32,7 +32,9 @@ unzip TE0715-test_board-vivado_2020.2-*.zip
 ```
 
 
-## Configure the reference design (command line part)
+## Configure the reference design
+
+This part is launched from the command line but requires an X11 graphical environment. If you are using Docker from Windows, see the _Using Graphical Applications on a Windows Host_ section of our Docker documentation in the _Hast.Vitis.Abstractions_ project.
 
 ```
 cd ${HOME}/trenz_te0715_04_30_1c/vivado/test_board
