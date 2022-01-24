@@ -28,7 +28,7 @@ cd ${HOME}/trenz_te0715_04_30_1c
 mkdir vivado
 cd vivado
 wget https://shop.trenz-electronic.de/trenzdownloads/Trenz_Electronic/Modules_and_Module_Carriers/4x5/TE0715/Reference_Design/2020.2/test_board/TE0715-test_board-vivado_2020.2-build_5_20210611100936.zip
-unzip TE0715-test_board-vivado_2020.2-build_5_20210611100936.zip
+unzip TE0715-test_board-vivado_2020.2-*.zip
 ```
 
 
