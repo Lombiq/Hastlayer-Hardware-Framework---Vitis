@@ -69,7 +69,10 @@ Be sure that "Copy constraints files into project" settings are checked, and pre
 
 ### Configure the "ZYNQ7 Processing System"
 
-Set FCLK_CLK0 to 150 MHz:
+* Click on IP INTEGRATOR > Open Block Design from the left sidebar.
+* Double click on the "processing_system7_0" component (the block with the ZYNQ logo).
+* Go to the Clock Configuration on the side menu.
+* Find PL Fabric Clocks > FCLK_CLK0 and change it from 50 to 150.
 
 ![Set FCLK_CLK0](Images/ZynqXsaPsFclk0.png)
 
