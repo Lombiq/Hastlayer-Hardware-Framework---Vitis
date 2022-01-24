@@ -108,9 +108,13 @@ Save and close the Block Design tab.
 
 ## Export the XSA file
 
-Build the bitfile before exporting XSA by pressing the "Generate Bitstream" in Flow Navigator.
-
-After successfully building the bitfile press "Export Platform" in Flow Navigator. The platform type should be hardware only / pre-synthesis / include bitfile.
+* Click PROGRAM AND DEBUG > Generate Bitstream on the sidebar.
+* Press Yes on the prompt and Ok on the dialog box.
+* You need to wait for synthesis and implementation. You can track the progress on the Project Summary panel.
+* Eventually a dialog will pop up telling you that the implementation has completed. You can close it.
+* Click IP INTEGRATOR > Export Platform on the sidebar.
+* Click Next until you reach the Platform State where you need to tick the Include bitstream box. Then click Next until the end and then Finish.
+   * Note that you can see the path on the Output File page, it should be the same as below.
 
 The path for the generated XSA file:
 
