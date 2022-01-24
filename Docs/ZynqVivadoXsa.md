@@ -76,7 +76,10 @@ Be sure that "Copy constraints files into project" settings are checked, and pre
 
 ![Set FCLK_CLK0](Images/ZynqXsaPsFclk0.png)
 
-Enable iinterrupt requests from fabric:
+* Go to Interrupts on the side menu.
+* Tick the Fabric Interrupts.
+* Tick Fabric Interrupts > PL_PS Interrupt Ports > IRQ_F2P.
+* Click Ok.
 
 ![Enable IRQ_F2P](Images/ZynqXsaPsIrqF2P.png)
 
