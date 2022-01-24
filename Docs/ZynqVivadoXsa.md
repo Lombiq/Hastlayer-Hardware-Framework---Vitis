@@ -52,7 +52,10 @@ Wait until the Vivado GUI is done with the initial block design creation.
 
 ## Configure the reference design for Hastlayer (Vivado GUI part)
 
-Change the project type to Vitis extensible platform on Project Settings - General tab:
+- Click the Tools > Settings menu.
+- Select Project Settings > General from the sidebar.
+- Tick the _Project is an extensible Vitis platform_ checkbox.
+- Click the Ok button.
 
 ![Enable Vitis Platform](Images/ZynqXsaVitisPlatform.png)
 
