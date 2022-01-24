@@ -39,7 +39,12 @@ cd ${HOME}/trenz_te0715_04_30_1c/vivado/test_board
 source _create_linux_setup.sh
 ```
 
-In the command line menu first press "0" (Module selection guide, project creation...). Wait until the module list apears. Then type in "AN", ENTER, "TE0715-04-30-1C", ENTER to select the apropriate module. Then answer "Y",  and press "2" at the end to create the Vivado project.
+In the command line menu: 
+- Press "0". (Module selection guide, project creation...)
+- Wait until the module list apears.
+- Type in `AN`, then press <kbd>enter</kbd>.
+- Type `TE0715-04-30-1C`, then press <kbd>enter</kbd> to select the apropriate module.
+- Answer `Y`, and then `2` at the end to create the Vivado project.
 
 Wait until the Vivado GUI is done with the initial block design creation.
 
