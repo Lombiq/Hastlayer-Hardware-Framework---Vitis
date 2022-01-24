@@ -83,10 +83,9 @@ Right-click on the block design and add "Concat" and "Processor System Reset" IP
 
 Make connection between:
 
-xlconcat_1:dout[1:0] -> PS:IRQ_F2P[1:0]
-
-PS:FCLK_CLK0 -> proc_sys_reset_0:slowest_sync_clk
-PS:FCLK_RESET0_N -> proc_sys_reset_0:ext_reset_in
+* `xlconcat_1:dout[1:0]` -> `processing_system7_0:IRQ_F2P[1:0]`
+* `processing_system7_0:FCLK_CLK0` -> `proc_sys_reset_0:slowest_sync_clk`
+* `processing_system7_0:FCLK_RESET0_N` -> `proc_sys_reset_0:ext_reset_in`
 
 
 ![Concat and Reset](Images/ZynqXsaConcatReset.png)
