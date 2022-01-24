@@ -4,6 +4,8 @@ To start with the Hastlayer on the Trenz TE0715-04-30-1C module you first need t
 
 ## Install Vitis Core Development Kit 2020.2
 
+> ℹ️ If you are using the Centos 7 Docker image you already have the development kit and can skip this section.
+
 Download the Vitis Core Development Kit 2020.2 installer (Vivado included) from Xilinx website: (https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis/2020-2.html) and install it. 
 
 ![Download Vitis Core Development Kit Installer](Images/VitisDownloadInstaller.png)
