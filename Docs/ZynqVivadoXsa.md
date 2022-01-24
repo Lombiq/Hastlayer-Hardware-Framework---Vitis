@@ -104,6 +104,8 @@ Enable interrupt In0 .. In7:
 
 ![VitisXsaPlatformInterrupt](Images/ZynqXsaPlatformInterrupt.png)
 
+Save and close the Block Design tab.
+
 ## Export the XSA file
 
 Build the bitfile before exporting XSA by pressing the "Generate Bitstream" in Flow Navigator.
