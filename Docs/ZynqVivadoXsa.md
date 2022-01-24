@@ -59,7 +59,7 @@ Wait until the Vivado GUI is done with the initial block design creation.
 
 ![Enable Vitis Platform](Images/ZynqXsaVitisPlatform.png)
 
-Import the external constraint files into the project to be able to export the XSA file. Right-click on Constraint(5) filegroup and choose "Add Sources..."
+Import the external constraint files into the project to be able to export the XSA file. Right-click on the Constraints group and choose "Add Sources..."
 
 ![Import constraint step 1](Images/ZynqXsaImportConstraints1.png)
 
