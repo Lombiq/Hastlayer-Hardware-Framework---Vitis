@@ -38,7 +38,7 @@ This part is launched from the command line but requires an X11 graphical enviro
 
 ```
 cd ${HOME}/trenz_te0715_04_30_1c/vivado/test_board
-source _create_linux_setup.sh
+bash _create_linux_setup.sh
 ```
 
 In the command line menu: 
