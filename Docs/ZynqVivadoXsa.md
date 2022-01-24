@@ -90,7 +90,7 @@ Make connection between:
 
 ![Concat and Reset](Images/ZynqXsaConcatReset.png)
 
-###Configure the "Platform Setup" pages
+### Configure the "Platform Setup" pages
 
 Enable M_AXI_GP0 and S_AXI_HP0:
 
