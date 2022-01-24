@@ -85,7 +85,10 @@ Be sure that "Copy constraints files into project" settings are checked, and pre
 
 ### Extend the block design with the Concat and Reset IP
 
-Right-click on the block design and add "Concat" and "Processor System Reset" IPs.
+* Right-click on the block design.
+* Select Add IP.
+* Type "Concat" into the search bar and click on the result.
+* Do the same for "Processor System Reset" too.
 
 Make connection between:
 
