@@ -6,6 +6,7 @@
 
     <ItemGroup> 
       <None Update="rtl\src\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+      <None Update="platforms\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
 </Project>

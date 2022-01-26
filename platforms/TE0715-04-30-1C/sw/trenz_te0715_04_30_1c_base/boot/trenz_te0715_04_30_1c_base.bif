@@ -1,0 +1,6 @@
+/*trenz_te0715_04_30_1c_base*/
+the_ROM_image:
+{
+  [bootloader]<trenz_te0715_04_30_1c_base/boot/fsbl.elf>
+   <bitstream> 
+}
