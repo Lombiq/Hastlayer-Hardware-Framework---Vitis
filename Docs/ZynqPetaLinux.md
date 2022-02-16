@@ -45,9 +45,12 @@ If everything was all right the above command will prompt you with several licen
 
 Before using the PetaLinux tools you first have to set up the environment:
 
+```shell
+source ~/petalinux20202/settings.sh
+echo '. ~/petalinux20202/settings.sh' >> ~/.bashrc
 ```
-source ${HOME}/petalinux20202/settings.sh
-```
+
+> ℹ️ Pay attention to this output, as it will notify you if you are lacking free space, have network connection problems, or missing any dependencies. Don't worry about the not supported OS warning though.
 
 ## Configuring and building PetaLinux images
 
