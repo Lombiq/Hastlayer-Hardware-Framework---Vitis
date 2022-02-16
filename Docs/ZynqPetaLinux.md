@@ -68,6 +68,8 @@ cd petalinux
 petalinux-config --silentconfig  --get-hw-description=${HOME}/trenz_te0715_04_30_1c/vivado/test_board/vivado
 ```
 
+> ⚠️ If you run into an error during this step you can learn more by typing `less build/config.log`.
+
 Configure the kernel:
 
 ```
