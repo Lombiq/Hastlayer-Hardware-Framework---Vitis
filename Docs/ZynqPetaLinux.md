@@ -72,9 +72,24 @@ petalinux-config --silentconfig  --get-hw-description=${HOME}/trenz_te0715_04_30
 
 Configure the kernel:
 
-```
+> ℹ️ If you are a text-mode user (e.g. using Docker or SSH) you will have issues with spawning GUI terminal emulators that the installer expects. You have to tell OpenEmbedded to use [GNU Screen](https://www.gnu.org/software/screen/) as your terminal of choice:
+> ```shell
+> echo 'OE_TERMINAL = "screen"' >> project-spec/meta-user/conf/petalinuxbsp.conf
+> ```
+
+```shell
 petalinux-config -c kernel
 ```
+
+Navigate the menu like this:
+* Select _**D**evice Drivers_ and press <kbd>Enter</kbd>.
+* Select _**S**taging drivers_.
+  * Press <kbd>Space</kbd> to enable the feature.
+  * Press <kbd>Enter</kbd>.
+* Select _**X**ilinx PL clock enabler_.
+  * Press <kbd>Space</kbd> twice so it displays `<*>` next to it.
+
+You can-quick navigate visible elements by pressing the highlighted letter on your keyboard. Press <kbd>ESC</kbd> and save the configuration before exit.
 
 ![Kernel Configuration](Images/PetalinuxKernelStagingXilinxPlClockEnabler.png)
 
