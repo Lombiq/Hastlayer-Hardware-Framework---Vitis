@@ -93,12 +93,11 @@ You can-quick navigate visible elements by pressing the highlighted letter on yo
 
 ![Kernel Configuration](Images/PetalinuxKernelStagingXilinxPlClockEnabler.png)
 
-Set "Kernel Configuration - Device Drivers - Staging drivers - Xilinx PL clock enabler" option to [*] built-in.
-Press the ESC key and save the configuration before exit.
+Amend these config files and then configure the root filesystem:
 
-Replace ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi file with the following:
-
-```
+```shell
+(
+cat <<'EOF'
 /include/ "system-conf.dtsi"
 / {
     fclk0: fclk0 {
@@ -114,29 +113,22 @@ Replace ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi 
     status = "okay";
   };
 };
-```
+EOF
+) > project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
 
-Edit ./project-spec/meta-user/conf/petalinuxbsp.conf and add the following lines at the end:
+echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> project-spec/meta-user/conf/petalinuxbsp.conf
+echo 'IMAGE_AUTOLOGIN = "1"' >> project-spec/meta-user/conf/petalinuxbsp.conf
 
-```
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
-IMAGE_AUTOLOGIN = "1"
-```
+echo 'CONFIG_opencl-clhpp-dev' >> project-spec/meta-user/conf/user-rootfsconfig
+echo 'CONFIG_opencl-headers-dev' >> project-spec/meta-user/conf/user-rootfsconfig
+echo 'CONFIG_xrt' >> project-spec/meta-user/conf/user-rootfsconfig
+echo 'CONFIG_zocl' >> project-spec/meta-user/conf/user-rootfsconfig
 
-Edit ./project-spec/meta-user/conf/user-rootfsconfig and add the following lines at the end:
-
-```
-CONFIG_opencl-clhpp-dev
-CONFIG_opencl-headers-dev
-CONFIG_xrt
-CONFIG_zocl
-```
-
-Configure the root filesystem:
-
-```
 petalinux-config -c rootfs
 ```
+
+Enter the _user packages_ group and press <kbd>Space</kbd> on each item so the indicators display `[*]` for all of them.
+Then press <kbd>ESC</kbd> and save the configuration before exit.
 
 ![Rootfs Configuration](Images/PetalinuxRootfsUserPackages.png)
 
