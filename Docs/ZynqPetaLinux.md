@@ -4,7 +4,7 @@ To be able to run Hastlayer accelerated .NET applications on Trenz Electronics T
 
 ## Install Xilinx PetaLinux Tools 2020.2
 
-Download PetaLinux 2020.2 installer from Xilinx website (https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools/2020-2.html) and install it. 
+Download PetaLinux 2020.2 installer from [Xilinx website](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools/2020-2.html) and install it. 
 
 ![Download PetaLinux Installer](Images/PetalinuxDownloadInstaller.png)
 
