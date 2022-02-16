@@ -16,6 +16,10 @@ cd ${HOME}/trenz_te0715_04_30_1c/vitis
 vitis
 ```
 
+> ⚠️ If it fails to start up check if you see any of these errors:
+> * _libGL error: failed to load driver: swrast_ install mesa-libGLw. On CentOS type `sudo yum install -y mesa-libGLw-devel.x86_64`.
+> * _process 19030: D-Bus library appears to be incorrectly set up; failed to read machine uuid_ type `sudo bash -c 'sudo dbus-uuidgen > /var/lib/dbus/machine-id'`
+
 Set Workspace to: ${HOME}/trenz_te0715_04_30_1c/vitis
 
 Create a new platform project:
