@@ -8,7 +8,7 @@ Download PetaLinux 2020.2 installer from [Xilinx website](https://www.xilinx.com
 
 ![Download PetaLinux Installer](Images/PetalinuxDownloadInstaller.png)
 
-PetaLinux building requires a 64-bit Linux machine with supported RedHat 7-8, CentOS 7-8, or Ubuntu 16-18-20. The actual PetaLinux tools installation must be done as a regular user, but for installing the required packages you need root access too. For more details see the documentation (https://www.xilinx.com/content/dam/xilinx/support/documentation/sw_manuals/xilinx2021_1/ug1144-petalinux-tools-reference-guide.pdf).
+PetaLinux building requires a 64-bit Linux machine with supported RedHat 7-8, CentOS 7-8, or Ubuntu 16-18-20. The actual PetaLinux tools installation must be done as a regular user, but for installing the required packages you need root access too. For more details see [the documentation](https://www.xilinx.com/content/dam/xilinx/support/documentation/sw_manuals/xilinx2021_1/ug1144-petalinux-tools-reference-guide.pdf).
 
 ```
 ./petalinux-v2020.2-final-installer.run --dir ${HOME}/petalinux20202 --platform "arm"
