@@ -4,7 +4,6 @@
 
 The hardware framework project to be used with the [Hastlayer SDK](https://github.com/Lombiq/Hastlayer-SDK) when targeting Xilinx devices using the Vitis development environment. You don't really have to take care of this manually, since the framework is included during Hastlayer operations automatically.
 
-
 ## Documentation
 
 Contents:
@@ -23,7 +22,6 @@ The _rtl_ directory contains Makefiles which you could feasibly use to build pro
 ### v1.0 04.10.2021
 
 First public release with support for Alveo Datacenter Accelerator Cards.
-
 
 ## Contributing and support
 
