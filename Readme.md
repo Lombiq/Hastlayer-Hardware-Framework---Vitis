@@ -17,12 +17,6 @@ When the project file is referenced the _rtl/src_ and the _platforms_ directorie
 
 The _rtl_ directory contains Makefiles which you could feasibly use to build projects into a C++ application. More importantly we use them to track changes when translating a new version of the C++ prototype implementations into the C# build providers. In other words we don't actually use the _/rtl/Makefile_ and _/rtl/Makefile.Zynq_ in our code or build process directly. Consider it documentation if you know how to use make.
 
-## Release notes
-
-### v1.0 04.10.2021
-
-First public release with support for Alveo Datacenter Accelerator Cards.
-
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
