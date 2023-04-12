@@ -1,12 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Title>Hastlayer Hardware Framework - Xilinx Vitis</Title>
+    <Description>Hastlayer Hardware Framework - Xilinx Vitis: The hardware framework project to be used with the Hastlayer SDK when targeting Xilinx devices using the Vitis development environment. See the project website for detailed documentation.</Description>
+    <PackageTags>Lombiq;Hastlayer;FPGA;HardwareAcceleration;Performance;Xilinx;Vitis</PackageTags>
+    <PackageProjectUrl>https://github.com/Lombiq/Hastlayer-Hardware-Framework---Vitis</PackageProjectUrl>
+  </PropertyGroup>
 
-    <ItemGroup> 
-      <None Update="rtl\src\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
-      <None Update="platforms\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Update="rtl\src\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Update="platforms\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
 
 </Project>
