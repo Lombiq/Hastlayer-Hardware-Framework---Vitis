@@ -3,14 +3,31 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Title>Hastlayer Hardware Framework - Xilinx Vitis</Title>
+    <Authors>Lombiq Technologies</Authors>
+    <Copyright>Copyright © 2021, Lombiq Technologies Ltd.</Copyright>
     <Description>Hastlayer Hardware Framework - Xilinx Vitis: The hardware framework project to be used with the Hastlayer SDK when targeting Xilinx devices using the Vitis development environment. See the project website for detailed documentation.</Description>
+    <PackageIcon>NuGetIcon.png</PackageIcon>
     <PackageTags>Lombiq;Hastlayer;FPGA;HardwareAcceleration;Performance;Xilinx;Vitis</PackageTags>
+    <RepositoryUrl>https://github.com/Lombiq/Hastlayer-Hardware-Framework---Vitis</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Hastlayer-Hardware-Framework---Vitis</PackageProjectUrl>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="rtl\src\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
-    <None Update="platforms\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="HardwareFramework\%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="License.md" Pack="true" PackagePath="" />
+    <None Include="Readme.md" />
+    <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="HardwareFramework\rtl\src\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="HardwareFramework\platforms\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
   </ItemGroup>
 
 </Project>
