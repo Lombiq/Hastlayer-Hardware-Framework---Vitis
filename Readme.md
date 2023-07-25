@@ -1,5 +1,7 @@
 # Hastlayer Hardware Framework - Xilinx Vitis
 
+[![Hast.Vitis.HardwareFramework NuGet](https://img.shields.io/nuget/v/Hast.Vitis.HardwareFramework?label=Hast.Vitis.HardwareFramework)](https://www.nuget.org/packages/Hast.Vitis.HardwareFramework/)
+
 ## About
 
 The hardware framework project to be used with the [Hastlayer SDK](https://github.com/Lombiq/Hastlayer-SDK) when targeting Xilinx devices using the Vitis development environment. You don't really have to take care of this manually, since the framework is included during Hastlayer operations automatically.
