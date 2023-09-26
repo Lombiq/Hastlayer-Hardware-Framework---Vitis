@@ -41,7 +41,7 @@ Available switches:
 
 ## How to emulate hastip.hw_emu.xclbin?
 
-The initial repo contains the MemoryTest Hast_IP.vhd and an apropriate host aplication which can be emulated through the XRT. 
+The initial repo contains the MemoryTest Hast_IP.vhd and an appropriate host application which can be emulated through the XRT. 
 
 To build the XCLBIN file for software emulation use the provided Makefile with hw_emu option. For e.g.:
 
@@ -61,14 +61,14 @@ To run the emulated tests:
 XCL_EMULATION_MODE=hw_emu ./memorytest -s 1024 -a 2 -b 128 -l 10 -x ./xclbin/hastip.hw_emu.xclbin
 ```         
 
-Available memorytest switches:
+Available `memorytest` switches:
 `-s` - Kernel buffer size in bytes.
 `-a value` - cell[0] value - the firs cell to be incremented.
 `-b value` - cell[1] value - number of cells to be incremented.
 `-d` - Disable internal cache.
 `-l N` - Repeat the tests N times.
 `-r` - If set cell[0] and cell[1] will set to random range before each loop.
-`-p` - Pause before invoking the kernel (for ChipScope debuging).
+`-p` - Pause before invoking the kernel (for ChipScope debugging).
 `-x filename` - Path to the XCLBIN file.
 
 ## How to simulate Hast_IP.vhd + AXI Verification IP testbench in Vivado?
@@ -86,7 +86,7 @@ To run simulation in GUI mode (text reports + waveforms) use --gui switch:
 ./simulate.sh --gui
 ```
 
-To rerun the simulation after modyfing the source code:
+To rerun the simulation after modifying the source code:
 
 ```
 rm -r xsim.dir; rm *.log; rm *.jou; ./compile.sh; ./elaborate.sh; ./simulate.sh --stats
