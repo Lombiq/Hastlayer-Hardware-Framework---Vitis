@@ -20,16 +20,12 @@ source /tools/Xilinx/Vitis/2020.2/settings64.sh
 
 ## Downloading and configuring the reference design for TE0715-04-30-1C module
 
-Create an empty directory, then download and extract the reference design from Trenz Electronic:
+Create an empty directory, then download and extract the reference design from Trenz Electronic into it. As of 2024 the latest file can be found [here](https://shop.trenz-electronic.de/trenzdownloads/Trenz_Electronic/Modules_and_Module_Carriers/4x5/TE0715/Reference_Design/2022.2/test_board/TE0715-test_board-vivado_2022.2-build_2_20230705115102.zip). But if that link is outdated, please follow these instructions:
 
-```
-mkdir ${HOME}/trenz_te0715_04_30_1c
-cd ${HOME}/trenz_te0715_04_30_1c
-mkdir vivado
-cd vivado
-wget https://shop.trenz-electronic.de/trenzdownloads/Trenz_Electronic/Modules_and_Module_Carriers/4x5/TE0715/Reference_Design/2020.2/test_board/TE0715-test_board-vivado_2020.2-build_5_20210611100936.zip
-unzip TE0715-test_board-vivado_2020.2-*.zip
-```
+1. Go to the [TE0715 Resources page](https://wiki.trenz-electronic.de/display/PD/TE0715+Resources) in the Trenz Electronic Wiki.
+2. Click the _Download area_ link.
+3. Follow this path: Reference_Design → 2022.2 → test_board.
+4. Download the archive in the _Reference Design - Source Code and Configuration Files_ section.
 
 
 ## Configure the reference design
